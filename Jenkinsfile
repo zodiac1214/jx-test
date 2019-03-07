@@ -39,7 +39,7 @@ pipeline {
           // so we can retrieve the version in later steps
           sh "echo \$(jx-release-version) > VERSION"
           sh "jx step tag --version \$(cat VERSION)"
-          sh "npm install"
+          sh "npm install --no-audit"
           sh "CI=true DISPLAY=:99 npm test"
         }
       }
